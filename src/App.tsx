@@ -6,7 +6,6 @@ import getTheme from './theme';
 const App = () => {
   const { darkMode } = useDarkMode();
 
-  console.log('Dark mode status:', darkMode); // Debug
 
   return (
     <ThemeProvider theme={getTheme(darkMode)}>

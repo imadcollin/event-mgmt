@@ -3,6 +3,7 @@ import Dashboard from '../pages/Dashboard';
 import Profile from '../features/profiles/Profile';
 // import Chat from '../features/messaging/Chat';
 import ArtistsList from '../features/artists/ArtistsList';
+import ArtistProfile from '../features/artists/ArtistProfile';
 import HallsList from '../features/halls/HallsList';
 import EventList from '../features/events/EventList';
 import Inbox from '../features/messaging/Inbox';
@@ -20,6 +21,8 @@ const AppRoutes = () => {
 
         {/* <Route path="/chat" element={<Chat />} /> */}
         <Route path="/artists" element={<ArtistsList />} />
+        <Route path="/artists/:id" element={<ArtistProfile />} />
+
         <Route path="/halls" element={<HallsList />} />
         <Route path="/events" element={<EventList />} />
         {/* <Route path="/inbox" element={<Inbox />} /> */}
