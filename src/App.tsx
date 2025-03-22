@@ -1,11 +1,12 @@
-import AppRoutes from './routes/AppRoutes.jsx';
+import React from 'react';
+import AppRoutes from './routes/AppRoutes';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-100">
       <AppRoutes />
     </div>
   );
-}
+};
 
 export default App;

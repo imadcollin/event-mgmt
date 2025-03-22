@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Box, Card, CardContent, Typography, Button, Grid } from '@mui/material';
 
 const ArtistsList = () => {
   const [search, setSearch] = useState('');
@@ -13,8 +14,10 @@ const ArtistsList = () => {
   );
 
   return (
-    <div>
-      <h1>Artists</h1>
+    <Box sx={{ padding: 3 }}>
+      <Typography variant="h4" gutterBottom>
+        Artists
+      </Typography>
       <input
         type="text"
         placeholder="Search Artists"
@@ -22,12 +25,19 @@ const ArtistsList = () => {
         onChange={(e) => setSearch(e.target.value)}
         className="border p-2 rounded mb-4 w-full"
       />
-      <ul>
+      <Grid container spacing={2}>
         {filteredArtists.map((artist) => (
-          <li key={artist.id}>{artist.name} - {artist.genre}</li>
+          <Grid item xs={12} sm={6} md={4} key={artist.id}>
+            <Card sx={{ width: '100%' }}>
+              <CardContent>
+                <Typography variant="h6">{artist.name}</Typography>
+                <Typography color="textSecondary">{artist.genre}</Typography>
+              </CardContent>
+            </Card>
+          </Grid>
         ))}
-      </ul>
-    </div>
+      </Grid>
+    </Box>
   );
 };
 
