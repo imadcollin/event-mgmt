@@ -1,11 +1,17 @@
-import React from 'react';
+import { useDarkMode } from './context/DarkModeContext';
+import { ThemeProvider } from '@mui/material/styles';
 import AppRoutes from './routes/AppRoutes';
+import getTheme from './theme';
 
-const App: React.FC = () => {
+const App = () => {
+  const { darkMode } = useDarkMode();
+
+  console.log('Dark mode status:', darkMode); // Debug
+
   return (
-    <div className="min-h-screen bg-gray-100">
+    <ThemeProvider theme={getTheme(darkMode)}>
       <AppRoutes />
-    </div>
+    </ThemeProvider>
   );
 };
 
