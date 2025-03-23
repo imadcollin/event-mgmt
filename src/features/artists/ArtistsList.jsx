@@ -59,8 +59,8 @@ const ArtistsList = () => {
   };
 
   return (
-    <Box sx={{ padding: 3 }}>
-      <Typography variant="h4" gutterBottom>
+    <Box sx={{ padding: 3, backgroundColor: '#000', minHeight: '100vh' }}>
+      <Typography variant="h4" gutterBottom sx={{ color: '#fff', fontWeight: 'bold' }}>
         Artists
       </Typography>
       <input
@@ -68,12 +68,21 @@ const ArtistsList = () => {
         placeholder="Search Artists"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        className="border p-2 rounded mb-4 w-full"
+        style={{
+          padding: '10px',
+          width: '100%',
+          marginBottom: '20px',
+          borderRadius: '4px',
+          border: '1px solid #444',
+          backgroundColor: '#1e1e1e',
+          color: '#fff',
+          outline: 'none',
+        }}
       />
       <Grid container spacing={2}>
         {filteredArtists.map((artist) => (
           <Grid item xs={12} sm={6} md={4} key={artist.id}>
-            <Card sx={{ width: '100%' }}>
+            <Card sx={{ backgroundColor: '#1e1e1e', color: '#fff', borderRadius: '8px', transition: '0.3s', '&:hover': { backgroundColor: '#222' } }}>
               <CardContent>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                   <Avatar src={artist.imageUrl} sx={{ width: 56, height: 56 }} />
@@ -81,7 +90,7 @@ const ArtistsList = () => {
                     <Typography
                       variant="h6"
                       onClick={() => handleViewProfile(artist)}
-                      sx={{ cursor: 'pointer', textDecoration: 'underline' }}
+                      sx={{ cursor: 'pointer', color: '#fff', textDecoration: 'underline', '&:hover': { color: '#e53935' } }}
                     >
                       {artist.name}
                     </Typography>
@@ -95,12 +104,12 @@ const ArtistsList = () => {
 
                 <Box sx={{ display: 'flex', gap: 1, marginTop: 1 }}>
                   <Tooltip title="Twitter">
-                    <IconButton href={artist.social.twitter} target="_blank" rel="noopener noreferrer">
+                    <IconButton href={artist.social.twitter} target="_blank" rel="noopener noreferrer" sx={{ color: '#1da1f2' }}>
                       <TwitterIcon />
                     </IconButton>
                   </Tooltip>
                   <Tooltip title="Instagram">
-                    <IconButton href={artist.social.instagram} target="_blank" rel="noopener noreferrer">
+                    <IconButton href={artist.social.instagram} target="_blank" rel="noopener noreferrer" sx={{ color: '#e4405f' }}>
                       <InstagramIcon />
                     </IconButton>
                   </Tooltip>
@@ -108,9 +117,15 @@ const ArtistsList = () => {
 
                 <Button
                   onClick={() => handleViewProfile(artist)}
-                  sx={{ marginTop: 1 }}
+                  sx={{
+                    marginTop: 2,
+                    backgroundColor: '#e53935',
+                    color: '#fff',
+                    '&:hover': { backgroundColor: '#c62828' },
+                    padding: '8px 16px',
+                    borderRadius: '4px',
+                  }}
                   variant="contained"
-                  color="primary"
                 >
                   View Profile
                 </Button>
